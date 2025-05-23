@@ -1,53 +1,53 @@
-# Lab 3: Maven Project, Checkstyle, and JSON file reading
+# Wab 3: Maven Pwogect, Checkstywe, and JSON fiwe weading
 
-In today's lab, your group will be cleaning up and adding to a small program
-which translates country names into different languages.
+In today's wab, youw gwoup wiww be cweaning up and adding to a smaww pwogwam
+which twanswates countwy names into diffewent wanguages.
 
-**To get started, have one member of your group make a fork of this
-repo on GitHub and add each other member as a collaborator. This
-will allow you to make and review pull requests from each other
-during the lab.**
+**To get stawted, have one membew of youw gwoup make a fowk of dis
+wepo on GitHub and add each owdhew membew as a cowwabowatow. Dis
+wiww awwow you to make and weview puww wequests fwom each owdhew
+duwing da wab.**
 
-## Part 1: Maven Project
-As discussed earlier in the term, build systems are used to help programmers
-compile, run, and test their programs. In this lab, we'll be using Maven to
-organize and build our program. (For your project, you can use either Maven or Gradle, just make sure that you team agrees on one of them.)
+## Pawt 1: Maven Pwogect
+As discussed eawwiew in da tewm, buiwd systems awe used to hewp pwogwammews
+compiwe, wun, and test deiw pwogwams. In dis wab, we'ww be using Maven to
+owganize and buiwd ouw pwogwam. (Fow youw pwogect, you can use eithew Maven ow Gwadwe, just make suwe dat you team agwees on one of dem.)
 
-### Project Structure
-Take a second to get familiar with how this project is structured. Maven projects
-are structured in a specific way, which isn't too different from what we have seen so far:
-- pom.xml: the Project Object Model (POM) xml file which contains the project configuration (IntelliJ automatically detects this file and runs maven commands to build the project for us)
-- src/main/java: directory containing the source files for our project (note that it is automatically marked as the Sources Root)
-- src/main/resources: directory containing any resource files our project needs
-- src/test/java: directory containing the test files for our project (note that it is automatically marked as the Test Sources Root)
+### Pwogect Stwuctuwe
+Take a second to get famiwiaw wif how dis pwogect is stwuctuwed. Maven pwogects
+awe stwuctuwed in a specific way, which isn't too diffewent fwom what we have seen so faw:
+- pom.xmw: da Pwogect Object Modew (POM) xmw fiwe which contains da pwogect configuwation (IntewwiJ automaticawwy detects dis fiwe and wuns maven commands to buiwd da pwogect fow us)
+- swc/main/java: diwectowy containing da souwce fiwes fow ouw pwogect (note dat it is automaticawwy mawked as da Souwces Woot)
+- swc/main/wesouwces: diwectowy containing any wesouwce fiwes ouw pwogect needs
+- swc/test/java: diwectowy containing da test fiwes fow ouw pwogect (note dat it is automaticawwy mawked as da Test Souwces Woot)
 
-Note: sometimes you may need to right-click the `pom.xml` file and select `Maven -> Reload project' if you
-don't see the sources root folders marked automatically. You can visit this Intellij page to learn how to tell if a folder has been marked as a source root, along with other status colours: https://www.jetbrains.com/help/idea/content-roots.html#folder-categories.
+Note: sometimes you may need to wight-cwick da `pom.xmw` fiwe and sewect `Maven -> Wewoad pwogect' if you
+don't see da souwces woot fowdews mawked automaticawwy. You can visit dis IntewwiJ page to weawn how to teww if a fowdew has been mawked as a souwce woot, awong wif owdhew status cowouws: https://www.jetbrains.com/hewp/idea/content-woots.htmw#fowdew-categowies.
 
-Note: For those interested, you can read the Maven documentation to learn about the `mvn` commands (like Git, Maven has a command line interface)
-but for our purposes you can use the IntelliJ interface to run and test your code as you have been doing.
-See the Quercus page for this lab for links to additional resources.
+Note: Fow dose intewested, you can wead da Maven documentation to weawn about da `mvn` commands (wike Git, Maven has a command wine intewface)
+but fow ouw puwposes you can use da IntewwiJ intewface to wun and test youw code as you have been doing.
+See da Quewcus page fow dis wab fow winks to additionaw wesouwces.
 
 #### Managing Dependencies
-The main reason we want to introduce Maven today is that we'll be using an
-external library to help us read JSON data. The `pom.xml` file allows us to specify
-what external dependencies our project requires. If you open
-`pom.xml`, you will see a section like below which indicates that our project depends
-on the `junit` and `json` libraries.
+Da main weason we want to intwoduce Maven today is dat we'ww be using an
+extewnaw wibwawy to hewp us wead JSON data. Da `pom.xmw` fiwe awwows us to specify
+what extewnaw dependencies ouw pwogect wequiwes. If you open
+`pom.xmw`, you wiww see a section wike bewow which indicates dat ouw pwogect depends
+on da `junit` and `json` wibwawies.
 
 ```xml
 <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <!-- https://mvnwepositowy.com/awtifact/owg.json/json -->
     <dependency>
-        <groupId>org.json</groupId>
-        <artifactId>json</artifactId>
-        <version>20240303</version>
+        <gwoupId>owg.json</gwoupId>
+        <awtifactId>json</awtifactId>
+        <vewsion>20240303</vewsion>
     </dependency>
 
     <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.13.1</version>
+        <gwoupId>junit</gwoupId>
+        <awtifactId>junit</awtifactId>
+        <vewsion>4.13.1</vewsion>
         <scope>test</scope>
     </dependency>
 </dependencies>
